@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
   <script src="blockly/blockly_compressed.js"></script>
+  <script src="javascript_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
   <script src="blockly/msg/js/en.js"></script>
 </head>
@@ -33,7 +34,14 @@ Welcome to our project
   var workspace = Blockly.inject('blocklyDiv',
       {toolbox: document.getElementById('toolbox')});
 </script>
-
+  <div id = "output"></div>
+<script>
+  function myUpdateFunction(event) {
+  var code = Blockly.JavaScript.workspaceToCode(workspace);
+  document.getElementById('textarea').value = code;
+  }
+  workspace.addChangeListener(myUpdateFunction);
+  </script>
 </body>
 </html>
 

@@ -60,7 +60,7 @@
 <script>
   function myUpdateFunction(event) {
   var code = Blockly.JavaScript.workspaceToCode(workspace);
-  document.getElementById('textarea').value = code;
+  document.getElementById('output').value = code;
   }
   workspace.addChangeListener(myUpdateFunction);
   </script>

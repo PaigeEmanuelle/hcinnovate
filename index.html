@@ -52,8 +52,14 @@
 </div>
 </nav>
 
-<div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+<div class="flex-container-row">
+  <!-- Blockly workspace -->
+  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+  <!-- Generated code -->
+  <div id = "output"></div>
+</div>
 
+<!-- Blocks available to user -->
 <xml id="toolbox" style="display: none">
   <block type="controls_if"></block>
   <block type="controls_repeat_ext"></block>
@@ -64,19 +70,22 @@
   <block type="text_print"></block>
 </xml>
 
+<!-- Inject toolbox into Blockly workspace -->
 <script>
   var workspace = Blockly.inject('blocklyDiv',
       {toolbox: document.getElementById('toolbox')});
 </script>
-  <div id = "output"></div>
+
+<!-- Continuously update generated code -->
 <script>
   function myUpdateFunction(event) {
-  var code = Blockly.JavaScript.workspaceToCode(workspace);
-  document.getElementById('output').value = code;
-  console.log(code);
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    document.getElementById('output').innerHTML = code;
   }
   workspace.addChangeListener(myUpdateFunction);
-  </script>
+</script>
+
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

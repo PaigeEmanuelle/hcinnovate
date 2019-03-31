@@ -10,3 +10,19 @@ color: black;
 .navbar {
   color: black;
 }
+
+#output {
+  background-color: #dbdbdb;
+  min-height: 50%;
+  min-width: 50%;
+}
+
+#blocklyDiv {
+  min-height: 50%;
+  min-width: 50%;
+}
+
+.flex-container-row {
+  display: flex;
+  flex-direction: row;
+}

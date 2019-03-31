@@ -1,6 +1,10 @@
-body {
+html, body {
 background-color: #FFFFFF;
 color: black;
+height: 100%;
+width: 100%;
+margin: 0;
+overflow: hidden;
 }
 
 .title {
@@ -9,20 +13,42 @@ color: black;
 
 .navbar {
   color: black;
-}
-
-#output {
-  background-color: #dbdbdb;
-  min-height: 50%;
-  min-width: 50%;
-}
-
-#blocklyDiv {
-  min-height: 50%;
-  min-width: 50%;
+  border-bottom: 1px solid;
 }
 
 .flex-container-row {
   display: flex;
   flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+#blocklyDiv {
+  height: 100%;
+  width: 50%;
+}
+
+.flex-container-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  align-content: flex-start;
+}
+
+#textOutputDiv {
+  border: 0.5px solid;
+  border-bottom: 0px;
+  border-top: 0.25px;
+  min-height: 50%; /* Still shows div when there is no text */
+  height: 50%;
+  width: 100%;
+  margin: 0;
+}
+
+#visualOutputDiv {
+  border: 0.5px solid;
+  height: 50%;
+  width: 100%;
+  margin: 0;
 }

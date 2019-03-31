@@ -54,9 +54,11 @@
 
 <div class="flex-container-row">
   <!-- Blockly workspace -->
-  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
-  <!-- Generated code -->
-  <pre id = "output"></pre>
+  <div id="blocklyDiv"></div>
+  <div class="flex-container-column">
+    <!-- Generated code from blocks -->
+    <pre id = "textOutputDiv"></pre><div id = "visualOutputDiv"></div>
+  </div>
 </div>
 
 <!-- Blocks available to user -->
@@ -80,7 +82,7 @@
 <script>
   function myUpdateFunction(event) {
     var code = Blockly.JavaScript.workspaceToCode(workspace);
-    document.getElementById('output').innerHTML = code;
+    document.getElementById('textOutputDiv').innerHTML = code;
   }
   workspace.addChangeListener(myUpdateFunction);
 </script>

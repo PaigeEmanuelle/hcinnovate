@@ -1,3 +1,12 @@
 body {
-background-color: #FFFFFF
+background-color: #FFFFFF;
+color: black;
+}
+
+.title {
+  color: black;
+}
+
+.navbar {
+  color: black;
 }

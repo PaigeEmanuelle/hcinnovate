@@ -28,6 +28,10 @@ overflow: hidden;
   width: 50%;
 }
 
+.blocklySvg {
+  background-color: #303030;
+}
+
 .flex-container-column {
   display: flex;
   flex-direction: column;
@@ -37,13 +41,14 @@ overflow: hidden;
 }
 
 #textOutputDiv {
-  border: 0.5px solid;
-  border-bottom: 0px;
   border-top: 0.25px;
   min-height: 50%; /* Still shows div when there is no text */
   height: 50%;
   width: 100%;
   margin: 0;
+  background-color: #292c34;
+  color: white;
+  padding-left: 10px;
 }
 
 #visualOutputDiv {
@@ -51,4 +56,5 @@ overflow: hidden;
   height: 50%;
   width: 100%;
   margin: 0;
+  background-color: #1d1f21;
 }

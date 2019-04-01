@@ -43,5 +43,21 @@ goog.require('Blockly');
 // Blockly.Constants.Math.HUE = 230;
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
-  
+  {
+  "type": "scatterplot",
+  "message0": "Create Scatterplot %1 Array %2",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "ARRAY",
+      "check": "Array"
+    }
+  ],
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+}  
 ]);  // END JSON EXTRACT (Do not delete this comment.)

@@ -42,22 +42,29 @@ goog.require('Blockly');
  */
 // Blockly.Constants.Math.HUE = 230;
 
+
+
+
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   {
-  "type": "scatterplot",
-  "message0": "Create Scatterplot %1 Array %2",
+  "type": "create_scatterplot",
+  "message0": "Create scatterplot %1 Data %2",
   "args0": [
     {
       "type": "input_dummy"
     },
     {
       "type": "input_value",
-      "name": "ARRAY",
-      "check": "Array"
+      "name": "test_number",
+      "check": "Array",
+      "align": "RIGHT"
     }
   ],
-  "colour": 230,
-  "tooltip": "",
-  "helpUrl": ""
-}  
+  "inputsInline": false,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 210,
+  "tooltip": "thing",
+  "helpUrl": "www.bowdoin.edu"
+} 
 ]);  // END JSON EXTRACT (Do not delete this comment.)

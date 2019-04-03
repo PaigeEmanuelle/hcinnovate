@@ -32,8 +32,8 @@ goog.require('Blockly.Python');
 // If any new block imports any library, add that library name here.
 Blockly.Python.addReservedWords('math,random,Number');
 
-Blockly.Python['create_scatterplot'] = function(block) {
-  var value_test_number = Blockly.Python.valueToCode(block, 'test_number', Blockly.Python.ORDER_ATOMIC);
+Blockly.JavaScript['create_scatterplot'] = function(block) {
+  var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
   var code = 'print("Scatterplot created")';
   return code;

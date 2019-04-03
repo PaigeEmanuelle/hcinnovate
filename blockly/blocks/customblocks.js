@@ -66,5 +66,29 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   "colour": 210,
   "tooltip": "thing",
   "helpUrl": "www.bowdoin.edu"
+},
+
+{
+  "type": "create_scatterplot_2",
+  "message0": "Create new scatterplot %1 Data %2",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "test_number",
+      "check": "Array",
+      "align": "RIGHT"
+    }
+  ],
+  "inputsInline": false,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 210,
+  "tooltip": "thing",
+  "helpUrl": "www.bowdoin.edu"
 } 
+
+
 ]);  // END JSON EXTRACT (Do not delete this comment.)

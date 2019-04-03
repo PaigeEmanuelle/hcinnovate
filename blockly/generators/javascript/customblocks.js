@@ -33,27 +33,17 @@ goog.require('Blockly.Python');
 Blockly.Python.addReservedWords('math,random,Number');
 
 Blockly.JavaScript['create_scatterplot'] = function(block) {
-  var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.Python.ORDER_ATOMIC);
+  var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
   var code = 'print("Scatterplot created")';
   return code;
 };
 
-Blockly.Python['math_number'] = function(block) {
-  // Numeric value.
-  var code = parseFloat(block.getFieldValue('NUM'));
-  var order;
-  if (code == Infinity) {
-    code = 'float("inf")';
-    order = Blockly.Python.ORDER_FUNCTION_CALL;
-  } else if (code == -Infinity) {
-    code = '-float("inf")';
-    order = Blockly.Python.ORDER_UNARY_SIGN;
-  } else {
-    order = code < 0 ? Blockly.Python.ORDER_UNARY_SIGN :
-            Blockly.Python.ORDER_ATOMIC;
-  }
-  return [code, order];
+Blockly.JavaScript['create_scatterplot_2'] = function(block) {
+  var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'print("New scatterplot created")';
+  return code;
 };
 
 

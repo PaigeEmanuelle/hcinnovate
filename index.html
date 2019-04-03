@@ -482,6 +482,14 @@ Blockly.Blocks['create_scatterplot'] = {
   }
 };
 
+Blockly.JavaScript['create_scatterplot'] = function(block) {
+  var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = 'print("Scatterplot created")';
+  return code;
+};
+
+
 Blockly.JavaScript['graph_set_y'] = function(block) {
   // y variable setter.
   var argument0 = Blockly.JavaScript.valueToCode(block, 'VALUE',

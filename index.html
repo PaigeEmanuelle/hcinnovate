@@ -464,9 +464,9 @@ Blockly.Blocks['create_scatterplot'] = {
       "message0": "Create scatterplot %1 Data %2",
       "args0": [
         {
-          "type": "input_dummy"
-        },
-        {
+   //       "type": "input_dummy"
+   //     }
+   // {
           "type": "input_value",
           "name": "test_number",
           "check": "Array",
@@ -474,6 +474,7 @@ Blockly.Blocks['create_scatterplot'] = {
         }
       ],
       "inputsInline": false,
+       
       "previousStatement": null,
       "nextStatement": null,
       "colour": 210,
@@ -484,10 +485,18 @@ Blockly.Blocks['create_scatterplot'] = {
 };
 
 Blockly.JavaScript['create_scatterplot'] = function(block) {
-  var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
+  var data = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_MEMBER) || '[]';
   // TODO: Assemble Python into code variable.
-  var code = 'print("Scatterplot created")';
-  return code;
+  
+  
+  var points = {
+  x: data,
+  y: [0, 0, 0, 0],
+  mode: 'lines',
+  type: 'scatter'
+  };
+  Plotly.newPlot("visualOutputDiv", data);
+  return data;
 };
 
 

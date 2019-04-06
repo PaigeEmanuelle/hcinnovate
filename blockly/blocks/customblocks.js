@@ -46,27 +46,27 @@ goog.require('Blockly');
 
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
-  {
-  "type": "create_scatterplot",
-  "message0": "Create scatterplot %1 Data %2",
-  "args0": [
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "input_value",
-      "name": "test_number",
-      "check": "Array",
-      "align": "RIGHT"
-    }
-  ],
-  "inputsInline": false,
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 210,
-  "tooltip": "thing",
-  "helpUrl": "www.bowdoin.edu"
-},
+//   {
+//   "type": "create_scatterplot",
+//   "message0": "Create scatterplot %1 Data %2",
+//   "args0": [
+//     {
+//       "type": "input_dummy"
+//     },
+//     {
+//       "type": "input_value",
+//       "name": "test_number",
+//       "check": "Array",
+//       "align": "RIGHT"
+//     }
+//   ],
+//   "inputsInline": false,
+//   "previousStatement": null,
+//   "nextStatement": null,
+//   "colour": 210,
+//   "tooltip": "thing",
+//   "helpUrl": "www.bowdoin.edu"
+// },
 
 {
   "type": "create_scatterplot_2",

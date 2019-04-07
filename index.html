@@ -13,6 +13,8 @@
   <script src="blockly/javascript_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
   <script src="blockly/msg/js/en.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 </head>
 
 <body>
@@ -85,7 +87,7 @@
 
     <category name="Custom Blocks" colour="%{BKY_TEXTS_HUE}">
       <block type="controls_if"></block>
-      <block type="create_scatterplot"></block> 
+      <block type="create_scatterplot"></block>
       <!-- <block type="create_scatterplot_2"></block>-->
 
     </category>
@@ -512,18 +514,14 @@ Blockly.Blocks['create_scatterplot'] = {
 
 Blockly.JavaScript['create_scatterplot'] = function(block) {
   var code = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC) || '[]';
-  // TODO: Assemble Python into code variable.
-  
-  
-   //var points = {
-   //x: code,
-   //y: [0, 0, 0],
-   //mode: 'lines',
-   //type: 'scatter'
-   //};
-  //Plotly.newPlot("visualOutputDiv", points);
-  //var text = "window.alert(" + data + ");\n";
-  //code = 'print("1234")';
+  var points = {
+  x: code,
+  y: [0, 0, 0],
+  mode: 'lines',
+  type: 'scatter'
+  };
+  Plotly.newPlot("visualOutputDiv", points);
+  // var text = "window.alert(" + data + ");\n";
   return code;
 };
 

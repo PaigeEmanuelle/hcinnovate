@@ -641,8 +641,11 @@ Blockly.Blocks['create_scatterplot'] = {
   init: function() {
     this.jsonInit({
       "type": "create_scatterplot",
-      "message0": "Create scatterplot %1 Data %2",
+      "message0": "Create scatterplot %1 X coords as list: %2 Y coords as list: %3",
       "args0": [
+      {
+          "type": "input_dummy"
+        },
     {
       "type": "input_value",
       "name": "x-list",

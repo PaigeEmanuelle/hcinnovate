@@ -21,49 +21,46 @@
 </head>
 
 <body>
-
-<!-- Navigation Bar -->
+<!-- Navigation bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a class="navbar-brand" href="#">HCInnovate App</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
+  <a class="navbar-brand" href="#">HCInnovate App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="file" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        File
-      </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item disabled" href="#">Option</a>
-        <a class="dropdown-item disabled" href="#">Option</a>
-      </div>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="edit" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Edit
-      </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item disabled" href="#">Option</a>
-        <a class="dropdown-item disabled" href="#">Option</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item disabled" href="#">Option</a>
-      </div>
-    </li>
-    <li class="nav-item active">
-      <!--The next line matches the rest of the toolbar, but the button looks kind of cool-->
-      <!--<a class="nav-link" href="#">Run<span class="sr-only">(current)</span></a>--></li>
-      <button onclick="runCode()" id="runButton">Run</button>
-    <li class="nav-item active">
-      <a class="nav-link" href="#">Help<span class="sr-only">(current)</span></a>
-
-  </ul>
-
-
-</div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="file" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          File
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item disabled" href="#">Option</a>
+          <a class="dropdown-item disabled" href="#">Option</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="edit" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Edit
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item disabled" href="#">Option</a>
+          <a class="dropdown-item disabled" href="#">Option</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item disabled" href="#">Option</a>
+        </div>
+      </li>
+      <li class="nav-item active">
+        <!--The next line matches the rest of the toolbar, but the button looks kind of cool-->
+        <!--<a class="nav-link" href="#">Run<span class="sr-only">(current)</span></a>--></li>
+        <button onclick="runCode()" id="runButton">Run</button>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Help<span class="sr-only">(current)</span></a>
+    </ul>
+  </div>
 </nav>
 
+<!--Web application main body -->
 <div class="flex-container-row">
   <!-- Blockly workspace -->
   <div id="blocklyDiv"></div>
@@ -74,17 +71,7 @@
   </div>
 </div>
 
-<!-- Blocks available to user -->
-<!-- <xml id="toolbox" style="display: none">
-  <block type="controls_if"></block>
-  <block type="controls_repeat_ext"></block>
-  <block type="logic_compare"></block>
-  <block type="math_number"></block>
-  <block type="math_arithmetic"></block>
-  <block type="text"></block>
-  <block type="text_print"></block>
-</xml>
--->
+<!--Blockly toolbox-->
 <xml id="toolbox" style="display: none">
     <category name="Logic" colour="%{BKY_LOGIC_HUE}">
       <block type="controls_if"></block>
@@ -99,7 +86,6 @@
     <category name="Custom Blocks" colour=0>
       <block type="create_scatterplot"></block>
       <block type="create_scatterplot_2"></block>
-
     </category>
 
     <category name="Loops" colour="%{BKY_LOOPS_HUE}">
@@ -231,8 +217,10 @@
           </shadow>
         </value>
       </block>
-      <!-- add graph blocks to toolbox-->
-          <block type="graph_set_y" deletable="false" x="100" y="100">
+
+
+      <!-- Add graph blocks to toolbox-->
+      <block type="graph_set_y" deletable="false" x="100" y="100">
       <value name="VALUE">
         <block type="math_arithmetic">
           <field name="OP">POWER</field>
@@ -253,6 +241,7 @@
         </block>
       </value>
     </block>
+
     </category>
     <category name="Text" colour="%{BKY_TEXTS_HUE}">
       <block type="text"></block>
@@ -425,45 +414,36 @@
     <category name="Functions" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
 
   </xml>
+
 <!-- Inject toolbox into Blockly workspace -->
 <script>
   var workspace = Blockly.inject('blocklyDiv',
       {toolbox: document.getElementById('toolbox')});
 </script>
 
-
 <!-- Continuously update generated code -->
 <script>
   function myUpdateFunction(event) {
     var code = Blockly.JavaScript.workspaceToCode(workspace);
     document.getElementById('textOutputDiv').innerHTML = code;
-
   }
   workspace.addChangeListener(myUpdateFunction);
 </script>
 
-
-
-<!-- interpreter -->
+<!-- Interpreter -->
 <!--<button onclick="runCode()" id="runButton">Run JavaScript</button>-->
 <script>
-  //function runCode(event) {
-  //  var code = Blockly.JavaScript.workspaceToCode(workspace);
-  //  var myInterpreter = new Interpreter(code);
-  //  myInterpreter.run();
-  //}
-
-
+//function runCode(event) {
+//  var code = Blockly.JavaScript.workspaceToCode(workspace);
+//  var myInterpreter = new Interpreter(code);
+//  myInterpreter.run();
+//}
 //comment this out?
     // var demoWorkspace = Blockly.inject('blocklyDiv',
     //     {media: '../../media/',
     //      toolbox: document.getElementById('toolbox')});
     // Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
     //                            demoWorkspace);
-
-
-
-
 
     // Exit is used to signal the end of a script.
     Blockly.JavaScript.addReservedWords('exit');
@@ -586,10 +566,9 @@
         generateCodeAndLoadIntoInterpreter();
       }
     });
-
 </script>
 
-  <!-- add code from graph example -->
+<!-- Graph blocks [remove?] -->
 <script>
   Blockly.defineBlocksWithJsonArray([{
   "type": "graph_get_x",
@@ -619,8 +598,6 @@ Blockly.defineBlocksWithJsonArray([{
   "tooltip": Blockly.Msg['VARIABLES_SET_TOOLTIP'],
   "helpUrl": Blockly.Msg['VARIABLES_SET_HELPURL']
 },
-
-
 {
       "type": "create_scatterplot",
       "message0": "Create scatterplot %1 Data %2",
@@ -642,10 +619,9 @@ Blockly.defineBlocksWithJsonArray([{
       "tooltip": "thing",
       "helpUrl": "www.bowdoin.edu"
     }
-
-
 ]);
 
+// Scatterplot custom block declaration
 Blockly.Blocks['create_scatterplot'] = {
   init: function() {
     this.jsonInit({
@@ -674,7 +650,8 @@ Blockly.Blocks['create_scatterplot'] = {
 };
 
 Blockly.JavaScript['create_scatterplot'] = function(block) {
-  //var code = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC) || '[]';
+
+  // Pull input values from create scatterplot block
   var value_x_list = Blockly.JavaScript.valueToCode(block, 'x-list', Blockly.JavaScript.ORDER_ATOMIC);
   var value_y_list = Blockly.JavaScript.valueToCode(block, 'y-list', Blockly.JavaScript.ORDER_ATOMIC);
 
@@ -687,9 +664,6 @@ Blockly.JavaScript['create_scatterplot'] = function(block) {
   for(var i=0; i<y_values.length; i++) {
     y_values[i] = parseInt(y_values[i]);
   }
-  //var x_values = JSON.parse(value_x_list);
-  //var y_values = JSON.parse(value_y_list);
-
 
   var points = {
     x: x_values,
@@ -698,20 +672,11 @@ Blockly.JavaScript['create_scatterplot'] = function(block) {
     type: 'scatter'
   };
   Plotly.newPlot("visualOutputDiv", [points]);
-  //Plotly.redraw("visualOutputDiv", [points]);
 
-
-
+  // TODO(compose and return generated code
   return value_x_list;
 };
 
-
-Blockly.JavaScript['graph_set_y'] = function(block) {
-  // y variable setter.
-  var argument0 = Blockly.JavaScript.valueToCode(block, 'VALUE',
-      Blockly.JavaScript.ORDER_ASSIGNMENT) || '';
-  return 'y = ' + argument0 + ';';
-};
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

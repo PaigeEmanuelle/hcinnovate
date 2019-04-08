@@ -24,7 +24,7 @@
  */
 'use strict';
 
-goog.provide('Blockly.Python.math');
+//goog.provide('Blockly.Python.math');
 
 goog.require('Blockly.Python');
 

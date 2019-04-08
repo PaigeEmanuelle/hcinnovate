@@ -24,13 +24,13 @@
  */
 'use strict';
 
-goog.provide('Blockly.Python.math');
+//goog.provide('Blockly.Python.math');
 
-goog.require('Blockly.Python');
+goog.require('Blockly.JavaScript');
 
 
 // If any new block imports any library, add that library name here.
-Blockly.Python.addReservedWords('math,random,Number');
+Blockly.JavaScript.addReservedWords('math,random,Number');
 
 // Blockly.JavaScript['create_scatterplot'] = function(block) {
 //   var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);

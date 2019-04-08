@@ -23,7 +23,7 @@
 <body>
 <!-- Navigation bar -->
 <nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="#">HCInnovate App</a>
+  <a class="navbar-brand" href="#">HCInnovate</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -51,11 +51,11 @@
         </div>
       </li>
       <li class="nav-item active">
-        <!--The next line matches the rest of the toolbar, but the button looks kind of cool-->
-        <!--<a class="nav-link" href="#">Run<span class="sr-only">(current)</span></a>--></li>
-        <button onclick="runCode()" id="runButton">Run &#9658;</button>
-      <li class="nav-item active">
         <a class="nav-link" href="#">Help<span class="sr-only">(current)</span></a>
+      </li>
+      <li>
+      <button onclick="runCode()" id="runButton" style="font-weight: bold;">Run</button>
+      <li>
     </ul>
   </div>
 </nav>
@@ -98,7 +98,7 @@
       <block type="logic_ternary"></block>
     </category>
 
-    <category name="Custom Blocks" colour=0>
+    <category name="Graphs" colour=0>
       <block type="create_scatterplot"></block>
       <block type="create_scatterplot_2"></block>
     </category>

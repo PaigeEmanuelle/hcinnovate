@@ -22,7 +22,7 @@
 
 <body>
 <!-- Navigation bar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
   <a class="navbar-brand" href="#">HCInnovate App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,7 @@
       <li class="nav-item active">
         <!--The next line matches the rest of the toolbar, but the button looks kind of cool-->
         <!--<a class="nav-link" href="#">Run<span class="sr-only">(current)</span></a>--></li>
-        <button onclick="runCode()" id="runButton">Run</button>
+        <button onclick="runCode()" id="runButton">Run &#9658;</button>
       <li class="nav-item active">
         <a class="nav-link" href="#">Help<span class="sr-only">(current)</span></a>
     </ul>
@@ -62,12 +62,27 @@
 
 <!--Web application main body -->
 <div class="flex-container-row">
-  <!-- Blockly workspace -->
-  <div id="blocklyDiv"></div>
   <div class="flex-container-column">
-    <!-- Generated code from blocks -->
-    <pre id = "textOutputDiv"></pre><div id = "visualOutputDiv"></div>
-    <textarea id="output" disabled="disabled" style="display: inline-block; height: 480px; width: 100%;">    </textarea>
+    <!-- Blockly workspace -->
+    <div id="blocklyDiv"></div>
+  </div>
+  <div class="flex-container-column">
+    <!-- Visual output -->
+    <div id = "visualOutputDiv"></div>
+    <!-- Tabs -->
+    <div id = "output">
+      <nav>
+        <div class="nav nav-tabs" id="myTab" role="tablist">
+          <a class="nav-item nav-link active" id="text-tab" data-toggle="tab" href="#textOutputDiv">Console</a></li>
+          <a class="nav-item nav-link" id="generated-tab" data-toggle="tab" href="#generatedCodeDiv">Generator</a></li>
+        </div>
+      </nav>
+      <!-- Text console / Generated Code -->
+      <div class="tab-content" id="myTabContent">
+        <pre id = "generatedCodeDiv" role="tabpanel" class="tab-pane fade"></pre>
+        <textarea style="border: none" id="textOutputDiv" role="tabpanel" disabled="disabled" class="tab-pane fade show active"></textarea>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -425,7 +440,7 @@
 <script>
   function myUpdateFunction(event) {
     var code = Blockly.JavaScript.workspaceToCode(workspace);
-    document.getElementById('textOutputDiv').innerHTML = code;
+    document.getElementById('generatedCodeDiv').innerHTML = code;
   }
   workspace.addChangeListener(myUpdateFunction);
 </script>
@@ -448,7 +463,7 @@
     // Exit is used to signal the end of a script.
     Blockly.JavaScript.addReservedWords('exit');
 
-    var outputArea = document.getElementById('output'); //was 'output before', to a text area
+    var outputArea = document.getElementById('textOutputDiv'); //was 'output before', to a text area
     var runButton = document.getElementById('runButton');
     var myInterpreter = null;
     var runner;
@@ -681,5 +696,8 @@ Blockly.JavaScript['create_scatterplot'] = function(block) {
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+</footer>
 </body>
 </html>

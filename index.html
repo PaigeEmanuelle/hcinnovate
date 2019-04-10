@@ -100,7 +100,7 @@
 
     <category name="Graphs" colour=0>
       <block type="create_scatterplot"></block>
-      <block type="create_scatterplot_2"></block>
+      <!--<block type="create_scatterplot_2"></block>-->
     </category>
 
     <category name="Loops" colour="%{BKY_LOOPS_HUE}">
@@ -430,6 +430,82 @@
 
   </xml>
 
+
+  <xml id="startBlocks" style="display: none">
+    <block type="variables_set" id="set_n_initial" inline="true" x="20" y="20">
+      <field name="VAR">n</field>
+      <value name="VALUE">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+      <next>
+        <block type="controls_repeat_ext" id="repeat" inline="true">
+          <value name="TIMES">
+            <block type="math_number">
+              <field name="NUM">6</field>
+            </block>
+          </value>
+          <statement name="DO">
+            <!-- <block type="wait_seconds" id="wait">
+              <field name="SECONDS">1.0</field>
+              <next> -->
+                <block type="variables_set" id="set_n_update" inline="true">
+                  <field name="VAR">n</field>
+                  <value name="VALUE">
+                    <block type="math_arithmetic" inline="true">
+                      <field name="OP">MULTIPLY</field>
+                      <value name="A">
+                        <block type="variables_get">
+                          <field name="VAR">n</field>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <block type="math_number">
+                          <field name="NUM">2</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <next>
+                    <block type="text_print" id="print" inline="false">
+                      <value name="TEXT">
+                        <block type="variables_get">
+                          <field name="VAR">n</field>
+                        </block>
+                      </value>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </statement>
+        </block>
+      </next>
+    </block>
+
+<!-- Haven't gotten the premade lists to work yet -->
+    <!-- <block type="lists_create_with" id="list_data" inline="true" x="20" y="250">
+      <mutation items="3"></mutation>
+      <value name="ITEM">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+      <value name="ITEM">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+      <value name="ITEM">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+    </block>
+  </xml>
+ -->
+
 <!-- Inject toolbox into Blockly workspace -->
 <script>
   var workspace = Blockly.inject('blocklyDiv',
@@ -457,8 +533,8 @@
     // var demoWorkspace = Blockly.inject('blocklyDiv',
     //     {media: '../../media/',
     //      toolbox: document.getElementById('toolbox')});
-    // Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
-    //                            demoWorkspace);
+     Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
+                                workspace);
 
     // Exit is used to signal the end of a script.
     Blockly.JavaScript.addReservedWords('exit');

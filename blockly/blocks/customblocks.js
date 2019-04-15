@@ -73,7 +73,9 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   "message0": "Create new scatterplot %1 Data %2",
   "args0": [
     {
-      "type": "input_dummy"
+      "type": "field_variable",
+      "name": "test_number",
+      "variable": "item"
     },
     {
       "type": "input_value",

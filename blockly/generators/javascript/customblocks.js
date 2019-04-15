@@ -40,9 +40,10 @@ Blockly.JavaScript.addReservedWords('math,random,Number');
 // };
 
 Blockly.JavaScript['create_scatterplot_2'] = function(block) {
+  var variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('test_number'), Blockly.Variables.NAME_TYPE);
   var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'print("New scatterplot created")';
+  var code = variable_name;//'print("New scatterplot created")';
   return code;
 };
 

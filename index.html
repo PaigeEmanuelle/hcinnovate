@@ -774,7 +774,7 @@ Blockly.defineBlocksWithJsonArray([
   var variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('test_number'), Blockly.Variables.NAME_TYPE);
   var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = variable_name;//'print("New scatterplot created")';
+  var code = variable_name + ' = ' + value_test_number + ';';//'print("New scatterplot created")';
   return code;
 };
   

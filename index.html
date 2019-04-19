@@ -768,14 +768,24 @@ Blockly.defineBlocksWithJsonArray([
   
  Blockly.JavaScript['create_scatterplot_2'] = function(block) {
   //var variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('test_number'), Blockly.Variables.NAME_TYPE);
-  var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_NONE);
+  var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
   var code = 'x_coords = ' + value_test_number + ';';//'print("New scatterplot created")';
   return code;
 };
   
-  
-  
+Blockly.defineBlocksWithJsonArray([{
+  "type": "graph_data",
+  "message0": "data",
+  "output": "String",
+  "colour": Blockly.Msg['VARIABLES_HUE'],
+  "tooltip": Blockly.Msg['VARIABLES_GET_TOOLTIP'],
+  "helpUrl": Blockly.Msg['VARIABLES_GET_HELPURL']
+}]);
+  Blockly.JavaScript['graph_data'] = function(block) {
+  // x variable getter.
+  return ['this is the graph data', Blockly.JavaScript.ORDER_ATOMIC];
+};
   
   
 Blockly.JavaScript['create_scatterplot'] = function(block) {

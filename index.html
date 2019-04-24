@@ -66,7 +66,8 @@
 <div class="flex-container-row">
   <div class="flex-container-column">
     <!-- Blockly workspace -->
-    <div id="blocklyDiv"></div>
+    <div id="blocklyArea" style="height: 100%; width: 50%;"></div>
+    <div id="blocklyDiv" style="position: absolute"></div>
   </div>
   <div class="flex-container-column">
     <!-- Visual output -->
@@ -511,8 +512,30 @@
 
 <!-- Inject toolbox into Blockly workspace -->
 <script>
+  var blocklyArea = document.getElementById('blocklyArea');
+  var blocklyDiv = document.getElementById('blocklyDiv');
   var workspace = Blockly.inject('blocklyDiv',
       {toolbox: document.getElementById('toolbox')});
+    var onresize = function(e) {
+    // Compute the absolute coordinates and dimensions of blocklyArea.
+    var element = blocklyArea;
+    var x = 0;
+    var y = 0;
+    do {
+      x += element.offsetLeft;
+      y += element.offsetTop;
+      element = element.offsetParent;
+    } while (element);
+    // Position blocklyDiv over blocklyArea.
+    blocklyDiv.style.left = x + 'px';
+    blocklyDiv.style.top = y + 'px';
+    blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+    blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+    Blockly.svgResize(workspace);
+  };
+  window.addEventListener('resize', onresize, false);
+  onresize();
+  Blockly.svgResize(workspace);
 </script>
 
 <!-- Continuously update generated code -->

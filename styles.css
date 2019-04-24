@@ -13,6 +13,7 @@ overflow: hidden;
 
 .navbar {
   background-color: #141f2f;
+  height: 55px;
   border-bottom: solid white 2px;
 }
 
@@ -64,7 +65,7 @@ overflow: hidden;
 .flex-container-row {
   display: flex;
   flex-direction: row;
-  height: 95%;
+  height: calc(100% - 55px);
   width: 100%;
 }
 
@@ -81,10 +82,14 @@ overflow: hidden;
   height: 70%;
   width: 100%;
   background-color: #1f2e47;
+  color: black;
+  border-bottom: solid white 2px;
 }
 
 .blocklySvg {
+  color: black;
   background-color: #1f2e47;
+
 }
 
 .blocklyToolboxDiv {
@@ -97,23 +102,25 @@ overflow: hidden;
 
 #csvInputDiv {
   width: 100%;
-  height: 25%;
+  height: calc(30% - 2px);
   z-index: 10;
-  background-color: #e9ecef;
+  background-color: #1f2e47;
+  color: white;
 }
 
 #output {
   /* Dimensions with respect to right column */
-  height: 50%;
+  height: calc(50% - 0px);
   width: 100%;
+
 }
 
 .tab-content {
-  min-height: 95%;
-  height: 95%;
+  min-height: 100%;
+  height: calc(100% - 45px);
   width: 100%;
   color: white;
-  background-color: #223351;
+  background-color: #ffffff;
 }
 
 .nav-tabs{
@@ -126,7 +133,7 @@ overflow: hidden;
   width: 100%;
   margin: 0;
   padding-left: 10px;
-  color: white;
+  color: white !important;
   background-color: #223351;
 }
 
@@ -140,21 +147,27 @@ overflow: hidden;
   padding-left: 10px;
 }
 
+textarea {
+  color: white;
+}
+
+
 #visualOutputDiv {
-  height: 50%;
+  height: calc(50% - 45px);
   width: 100%;
   margin: 0;
   color: white;
   background-color: #223351;
 }
 
-.page-footer {
+/*.page-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 3%;
+  height: 20%;
   background-color: #141f2f;
 }
+*/
 
 .help-welcome {
   padding-top: 50px;

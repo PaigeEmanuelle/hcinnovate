@@ -102,7 +102,7 @@ FilePond.create(
       <!-- Text console / Generated Code -->
       <div class="tab-content" id="myTabContent">
         <pre id = "generatedCodeDiv" role="tabpanel" class="tab-pane fade"></pre>
-        <textarea style="border: none" id="textOutputDiv" role="tabpanel" disabled="disabled" class="tab-pane fade show active"></textarea>
+        <textarea id="textOutputDiv" role="tabpanel" disabled="disabled" class="tab-pane fade show active"></textarea> <!--style="border: none color:#fff"-->
       </div>
     </div>
   </div>
@@ -459,6 +459,7 @@ FilePond.create(
       <field name="VAR">n</field>
       <value name="VALUE">
         <block type="math_number">
+          <comment pinned="true" h="80" w="160">Insert instructions</comment>
           <field name="NUM">1</field>
         </block>
       </value>
@@ -611,6 +612,7 @@ FilePond.create(
 
       if (clearOutput) {
         outputArea.value = 'Program output:\n=================';
+        //outputArea.style = 'color:white !important';
       }
     }
 
@@ -681,6 +683,7 @@ FilePond.create(
       }
     });
 </script>
+
 
 <!-- Graph blocks [remove?] -->
 <script>

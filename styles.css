@@ -49,10 +49,11 @@ overflow: hidden;
   height: 100%;
   width: 50%;
   align-content: flex-end;
+  border-right: solid white 2px;
 }
 
 #blocklyDiv {
-  height: 95%;
+  height: 100%;
   width: 100%;
   background-color: #1f2e47;
 }
@@ -62,7 +63,8 @@ overflow: hidden;
 }
 
 .blocklyToolboxDiv {
-  background-color: #468c7c;
+  color: white;
+  background-color: #141f2f;
   z-index: 5;
 }
 
@@ -76,6 +78,12 @@ overflow: hidden;
   min-height: 95%;
   height: 95%;
   width: 100%;
+  color: white;
+  background-color: #223351;
+}
+
+.nav-tabs{
+  background-color: #223351;
 }
 
 #textOutputDiv {
@@ -84,6 +92,8 @@ overflow: hidden;
   width: 100%;
   margin: 0;
   padding-left: 10px;
+  color: white;
+  background-color: #223351;
 }
 
 #generatedCodeDiv {
@@ -91,7 +101,8 @@ overflow: hidden;
   height: 100%;
   width: 100%;
   margin: 0;
-  color: black;
+  color: white;
+  background-color: #223351;
   padding-left: 10px;
 }
 
@@ -99,6 +110,8 @@ overflow: hidden;
   height: 50%;
   width: 100%;
   margin: 0;
+  color: white;
+  background-color: #223351;
 }
 
 .page-footer {

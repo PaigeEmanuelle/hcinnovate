@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
 
+  <!-- Filepond stylesheet (drag and drop library) -->
+  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+
   <script src="blockly/blockly_compressed.js"></script>
   <script src="blockly/javascript_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
@@ -17,6 +20,10 @@
   <script src="acorn_interpreter.js"></script>
   <script src="wait_block.js"></script>
   <!-- <script src="blockly_interpreter.js"></script>-->
+
+  <!-- Load FilePond library -->
+  <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
 
 </head>
 
@@ -65,6 +72,14 @@
   <div class="flex-container-column">
     <!-- Blockly workspace -->
     <div id="blocklyDiv"></div>
+    <div id="csvInputDiv">
+      <input type="file"
+      class="filepond"
+      name="filepond"
+      multiple
+      data-max-file-size="3MB"
+      data-max-files="3" />
+    </div>
   </div>
   <div class="flex-container-column">
     <!-- Visual output -->
@@ -748,12 +763,12 @@ Blockly.defineBlocksWithJsonArray([
   "type": "create_scatterplot_2",
   "message0": "Create new scatterplot %1",
   "args0": [
- 
+
     {
       "type": "input_value",
       "name": "test_number",
       "check": "String"
-      
+
     }
   ],
   "inputsInline": false,
@@ -762,11 +777,11 @@ Blockly.defineBlocksWithJsonArray([
   "colour": 210,
   "tooltip": "thing",
   "helpUrl": "www.bowdoin.edu"
-} 
+}
   ]);
-  
-  
-  
+
+
+
  Blockly.JavaScript['create_scatterplot_2'] = function(block) {
   //var variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('test_number'), Blockly.Variables.NAME_TYPE);
   var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
@@ -787,8 +802,8 @@ Blockly.defineBlocksWithJsonArray([{
   // x variable getter.
   return 'this is the graph data';//, Blockly.JavaScript.ORDER_ATOMIC];
 };
-  
-  
+
+
 Blockly.JavaScript['create_scatterplot'] = function(block) {
 
   // Pull input values from create scatterplot block
@@ -821,6 +836,7 @@ Blockly.JavaScript['create_scatterplot'] = function(block) {
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 <!-- Footer -->
 <footer class="page-footer font-small blue">
 </footer>

@@ -820,6 +820,7 @@ var csv_data;
 
       reader.onload = function (e) {
         csv_data = reader.result;
+	console.log(csv_data);
         //fileDisplayArea.innerText = reader.result;
       };
 
@@ -844,7 +845,7 @@ Blockly.defineBlocksWithJsonArray([{
 }]);
   Blockly.JavaScript['graph_data'] = function(block) {
   // x variable getter.
-  return [csv_data, Blockly.JavaScript.ORDER_ATOMIC];;//, Blockly.JavaScript.ORDER_ATOMIC];
+  return [csv_data, Blockly.JavaScript.ORDER_ATOMIC];//, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 	

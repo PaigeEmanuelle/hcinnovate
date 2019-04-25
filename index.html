@@ -67,26 +67,27 @@
   </div>
 </nav>
 
-<script>
+//<script>
 // Select the file input and use create() to turn it into a pond
-FilePond.create(
-	document.querySelector('input')
-);
-</script>
+//FilePond.create(
+//	document.querySelector('input')
+//);
+//</script>
 
 <!--Web application main body -->
 <div class="flex-container-row">
   <div class="flex-container-column">
     <!-- Blockly workspace -->
     <div id="blocklyDiv"></div>
-    <div id="csvInputDiv">
-      <input type="file"
-      class="filepond"
-      name="filepond"
-      multiple
-      data-max-file-size="3MB"
-      data-max-files="3" />
-    </div>
+	<input type="file" id="fileInput" accept=".csv">  
+    //<div id="csvInputDiv">
+     // <input type="file"
+     // class="filepond"
+     // name="filepond"
+     // multiple
+     // data-max-file-size="3MB"
+     // data-max-files="3" />
+    //</div>
   </div>
   <div class="flex-container-column">
     <!-- Visual output -->
@@ -107,6 +108,9 @@ FilePond.create(
     </div>
   </div>
 </div>
+
+
+
 
 <!--Blockly toolbox-->
 <xml id="toolbox" style="display: none">
@@ -799,6 +803,36 @@ Blockly.defineBlocksWithJsonArray([
   var code = 'x_coords = ' + value_test_number + ';';//'print("New scatterplot created")';
   return code;
 };
+	
+	
+
+var csv_data;
+      window.onload = function () {
+  var fileInput = document.getElementById('fileInput');
+  //var fileDisplayArea = document.getElementById('fileDisplayArea');
+
+  fileInput.addEventListener('change', function (e) {
+    var file = fileInput.files[0];
+    var textType = /text.*/;
+
+    //if (file.type.match(textType)) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        csv_data = reader.result;
+        //fileDisplayArea.innerText = reader.result;
+      };
+
+      reader.readAsText(file);
+    //} else {
+      //fileDisplayArea.innerText = "File not supported!";
+    //}
+  });
+};
+      //# sourceURL=pen.js
+
+	
+	
   //variable we can use to get drag and drop data, then input data to scatterplot for parsing and graphing
 Blockly.defineBlocksWithJsonArray([{
   "type": "graph_data",
@@ -810,9 +844,13 @@ Blockly.defineBlocksWithJsonArray([{
 }]);
   Blockly.JavaScript['graph_data'] = function(block) {
   // x variable getter.
-  return 'this is the graph data';//, Blockly.JavaScript.ORDER_ATOMIC];
+  return [csv_data, Blockly.JavaScript.ORDER_ATOMIC];;//, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+	
+	
+	
+	
 
 Blockly.JavaScript['create_scatterplot'] = function(block) {
 

@@ -792,7 +792,7 @@ Blockly.defineBlocksWithJsonArray([
  Blockly.JavaScript['create_scatterplot_2'] = function(block) {
   //var variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('test_number'), Blockly.Variables.NAME_TYPE);
   var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
-  var coords = value_test_number.split("\n");
+  var coords = value_test_number.split(" ");
 	 console.log(coords);
   var x_values = new Array(coords.length);
   var y_values = new Array(coords.length);
@@ -807,7 +807,7 @@ Blockly.defineBlocksWithJsonArray([
     x_values[i] = parseInt(x_values[i]);
   }
 
-  var y_values = value_y_list.slice(1,-1).split(", ");
+  //var y_values = value_y_list.slice(1,-1).split(", ");
   for(var i=0; i<y_values.length; i++) {
     y_values[i] = parseInt(y_values[i]);
   }

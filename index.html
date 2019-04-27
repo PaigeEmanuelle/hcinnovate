@@ -792,8 +792,36 @@ Blockly.defineBlocksWithJsonArray([
  Blockly.JavaScript['create_scatterplot_2'] = function(block) {
   //var variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('test_number'), Blockly.Variables.NAME_TYPE);
   var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble Python into code variable.
-  var code = 'x_coords = ' + value_test_number + ';';//'print("New scatterplot created")';
+  var coords = value_test_number.split("\n");
+	 console.log(coords);
+  var x_values = new Array(coords.length);
+  var y_values = new Array(coords.length);
+  for(var i = 0; i<coords.length; i++){
+	  coord_pair = coords[i].split(",");
+	 x_values[i] = coord_pair[0];
+	  y_values[i] = coord_pair[1];
+  }
+	 
+  //var x_values = value_x_list.slice(1,-1).split(", ");
+  for(var i=0; i<x_values.length; i++) {
+    x_values[i] = parseInt(x_values[i]);
+  }
+
+  var y_values = value_y_list.slice(1,-1).split(", ");
+  for(var i=0; i<y_values.length; i++) {
+    y_values[i] = parseInt(y_values[i]);
+  }
+
+  var points = {
+    x: x_values,
+    y: y_values,
+    mode: 'markers',
+    type: 'scatter'
+  };
+  Plotly.newPlot("visualOutputDiv", [points]);	 
+	 
+	 
+  var code = 'data = ' + value_test_number + ';';//'print("New scatterplot created")';
   return code;
 };
 	

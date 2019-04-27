@@ -67,12 +67,7 @@
   </div>
 </nav>
 
-//<script>
-// Select the file input and use create() to turn it into a pond
-//FilePond.create(
-//	document.querySelector('input')
-//);
-//</script>
+
 
 <!--Web application main body -->
 <div class="flex-container-row">
@@ -792,7 +787,7 @@ Blockly.defineBlocksWithJsonArray([
  Blockly.JavaScript['create_scatterplot_2'] = function(block) {
   //var variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('test_number'), Blockly.Variables.NAME_TYPE);
   var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
-  var coords = value_test_number.split("\r\n");
+  var coords = value_test_number.split("\u2028");
 	 console.log(coords);
   var x_values = new Array(coords.length -1);
   var y_values = new Array(coords.length -1);

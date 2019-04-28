@@ -92,6 +92,10 @@ overflow: hidden;
 
 }
 
+.blocklyCommentTextarea{
+  color: black;
+}
+
 .blocklyToolboxDiv {
   color: white;
   background-color: #141f2f;

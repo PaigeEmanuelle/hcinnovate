@@ -76,6 +76,7 @@ overflow: hidden;
   width: 50%;
   align-content: flex-end;
   border-right: solid white 2px;
+  background-color: #1f2e47;
 }
 
 #blocklyDiv {

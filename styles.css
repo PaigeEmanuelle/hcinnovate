@@ -23,7 +23,7 @@ overflow: hidden;
 }
 
 .navbar-brand:hover {
-  color: #468c7c;
+  color: #3399db;
 }
 
 .navbar-nav .nav-link {
@@ -181,15 +181,6 @@ textarea {
   color: white;
   background-color: #223351;
 }
-
-/*.page-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 20%;
-  background-color: #141f2f;
-}
-*/
 
 .help-welcome {
   padding-top: 50px;

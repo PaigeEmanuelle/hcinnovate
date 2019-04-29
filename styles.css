@@ -96,20 +96,19 @@ overflow: hidden;
   height: 30%;
 }
 .upload-logo {
-  padding-top: 30px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100px;
-  height: 80px;
-}
-
-#fileInput {
-  background-color: blue;
   display: block;
   margin: auto;
-  align-content: center;
+  padding-top: 30px;
+  padding-left: 50px;
+  width: 135px;
+  height: 100px;
 }
+
+input {
+  padding-top: 15px;
+  padding-left: 40%;
+}
+
 
 .blocklyCommentTextarea{
   color: black;

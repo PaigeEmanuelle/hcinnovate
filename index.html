@@ -836,10 +836,8 @@ var csv_data;
 
       reader.onload = function (e) {
         csv_data = reader.result;
-	let $div2blink = $("#blocklyDiv"); // Save reference for better performance
-	let backgroundInterval = setInterval(function(){
-    		$div2blink.toggleClass("backgroundChange");
- 	},100)
+	document.getElementById('blocklyDiv').style.backgroundColor = "lightblue";
+	
         
 	
       };

@@ -9,9 +9,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Filepond stylesheet (drag and drop library) -->
-  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-
   <script src="blockly/blockly_compressed.js"></script>
   <script src="blockly/javascript_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
@@ -19,12 +16,7 @@
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="acorn_interpreter.js"></script>
   <script src="wait_block.js"></script>
-  <!-- <script src="blockly_interpreter.js"></script>-->
-
-  <!-- Load FilePond library -->
-  <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-
-
+  
 </head>
 
 <body>
@@ -74,7 +66,10 @@
   <div class="flex-container-column">
     <!-- Blockly workspace -->
     <div id="blocklyDiv"></div>
-	<input type="file" id="fileInput" accept=".csv">  
+  <div class=fileUploadDiv>
+    <img class="upload-logo" src="upload.png" alt="File upload logo">
+  	<input type="file" id="fileInput" accept=".csv">
+  </div>
 
   </div>
   <div class="flex-container-column">
@@ -785,7 +780,7 @@ Blockly.defineBlocksWithJsonArray([
 
 
  Blockly.JavaScript['create_scatterplot_2'] = function(block) {
-  
+
   var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
   var coords = value_test_number.split("\r\n");
 	 console.log(coords);
@@ -796,7 +791,7 @@ Blockly.defineBlocksWithJsonArray([
 	 x_values[i] = coord_pair[0];
 	  y_values[i] = coord_pair[1];
   }
-	 
+
   //var x_values = value_x_list.slice(1,-1).split(", ");
   for(var i=0; i<x_values.length; i++) {
     x_values[i] = parseInt(x_values[i]);
@@ -813,14 +808,14 @@ Blockly.defineBlocksWithJsonArray([
     mode: 'markers',
     type: 'scatter'
   };
-  Plotly.newPlot("visualOutputDiv", [points]);	 
-	 
-	 
+  Plotly.newPlot("visualOutputDiv", [points]);
+
+
   var code = 'data = ' + value_test_number + ';';//'print("New scatterplot created")';
   return code;
 };
-	
-	
+
+
 
 var csv_data;
       window.onload = function () {
@@ -842,8 +837,8 @@ var csv_data;
     	$(document).ready(function() {
         setInterval(blink, 100);
     });
-        
-	
+
+
       };
 
       reader.readAsText(file);
@@ -854,8 +849,8 @@ var csv_data;
 };
       //# sourceURL=pen.js
 
-	
-	
+
+
   //variable we can use to get drag and drop data, then input data to scatterplot for parsing and graphing
 Blockly.defineBlocksWithJsonArray([{
   "type": "graph_data",
@@ -870,10 +865,10 @@ Blockly.defineBlocksWithJsonArray([{
   return [csv_data, Blockly.JavaScript.ORDER_ATOMIC];//, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-	
-	
-	
-	
+
+
+
+
 
 Blockly.JavaScript['create_scatterplot'] = function(block) {
 

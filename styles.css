@@ -90,7 +90,18 @@ overflow: hidden;
 .blocklySvg {
   color: black;
   background-color: #1f2e47;
+}
 
+.fileUploadDiv {
+  height: 30%;
+}
+.upload-logo {
+  padding-top: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: 80px;
 }
 
 .blocklyCommentTextarea{

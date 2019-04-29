@@ -105,7 +105,7 @@ overflow: hidden;
   height: 100%;
 }
 
-#csvInputDiv {
+#fileInput {
   width: 100%;
   height: calc(30% - 2px);
   z-index: 10;

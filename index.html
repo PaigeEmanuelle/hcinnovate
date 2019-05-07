@@ -48,7 +48,6 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" onclick="undoAction()" href="#">Undo</a>
           <a class="dropdown-item" onclick="redoAction()" href="#">Redo</a>
-          <div class="dropdown-divider"></div>
         </div>
       </li>
       <li class="nav-item active">
@@ -538,6 +537,13 @@ function undoAction(){
 function redoAction(){
   Blockly.mainWorkspace.undo(true);
 }
+function deletePlot(event) {
+  console.log(Blockly.mainWorkspace.getBlocksByType('create_scatterplot_2'));
+  if(Blockly.mainWorkspace.getBlocksByType('create_scatterplot_2').length==0){
+    Plotly.purge("visualOutputDiv");
+  }
+}
+workspace.addChangeListener(deletePlot);
 </script>
 
 <!-- Interpreter -->
@@ -817,7 +823,6 @@ Blockly.defineBlocksWithJsonArray([
     type: 'scatter'
   };
   Plotly.newPlot("visualOutputDiv", [points]);
-
 
   var code = 'data = ' + value_test_number + ';';//'print("New scatterplot created")';
   return code;

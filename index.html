@@ -46,8 +46,8 @@
           Edit
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Undo</a>
-          <a class="dropdown-item" href="#">Redo</a>
+          <a class="dropdown-item" onclick="undoAction()" href="#">Undo</a>
+          <a class="dropdown-item" onclick="redoAction()" href="#">Redo</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Copy</a>
           <a class="dropdown-item" href="#">Paste</a>
@@ -531,6 +531,15 @@
     document.getElementById('generatedCodeDiv').innerHTML = code;
   }
   workspace.addChangeListener(myUpdateFunction);
+</script>
+
+<script>
+function undoAction(){
+  Blockly.mainWorkspace.undo(false);
+}
+function redoAction(){
+  Blockly.mainWorkspace.undo(true);
+}
 </script>
 
 <!-- Interpreter -->

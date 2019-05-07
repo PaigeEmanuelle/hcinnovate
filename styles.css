@@ -167,8 +167,14 @@ textarea {
   color: white;
 }
 
+[contentEditable=true]:empty:not(:focus):before{
+        content:attr(data-text);
+    }
 
 #visualOutputDiv {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
   height: calc(50% - 45px);
   width: 100%;
   margin: 0;

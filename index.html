@@ -68,8 +68,9 @@
     <!-- Blockly workspace -->
     <div id="blocklyDiv"></div>
   <div class=fileUploadDiv>
+	  <p id="uploaded" align = "center" style="height: 0px; display: none; color: white"> Data added to workspace! </p>
     <img class="upload-logo" src="upload.png" alt="File upload logo">
-  	<input type="file" id="fileInput" accept=".csv">
+  	<input type="file" id="fileInput" accept=".csv" style= "height: 50px">
   </div>
 
   </div>
@@ -111,7 +112,10 @@
     <category name="Graphs" colour=0>
       <!--<block type="create_scatterplot"></block>-->
       <block type="create_scatterplot_2"></block>
-      <block type="graph_data"></blocks>
+      <block type="create_scatterplot"></block>
+      
+      <block type="graph_y_data"></block>
+      <block type="graph_x_data"></block>
     </category>
 
     <category name="Loops" colour="%{BKY_LOOPS_HUE}">
@@ -738,11 +742,8 @@ Blockly.defineBlocksWithJsonArray([{
       "helpUrl": "help/index.html"
     }
 ]);
-
-// Scatterplot custom block declaration
-Blockly.Blocks['create_scatterplot'] = {
-  init: function() {
-    this.jsonInit({
+Blockly.defineBlocksWithJsonArray([
+  {
       "type": "create_scatterplot",
       "message0": "Create scatterplot %1 X coords as list: %2 Y coords as list: %3",
       "args0": [
@@ -751,12 +752,12 @@ Blockly.Blocks['create_scatterplot'] = {
         },
     {
       "type": "input_value",
-      "name": "x-list",
+      "name": "graph_x_data",
       "check": "Array"
     },
     {
       "type": "input_value",
-      "name": "y-list",
+      "name": "graph_y_data",
       "check": "Array"
     }
   ],
@@ -766,9 +767,10 @@ Blockly.Blocks['create_scatterplot'] = {
       "colour": 0,
       "tooltip": "thing",
       "helpUrl": "help/index.html"
-    });
-  }
-};
+}
+]);
+// Scatterplot custom block declaration
+
 Blockly.defineBlocksWithJsonArray([
   {
   "type": "create_scatterplot_2",
@@ -831,7 +833,7 @@ Blockly.defineBlocksWithJsonArray([
 
 
 var csv_data;
-      window.onload = function () {
+window.onload = function () {
   var fileInput = document.getElementById('fileInput');
   var fileDisplayArea = document.getElementById('visualOutputArea');
 
@@ -844,9 +846,15 @@ var csv_data;
 
       reader.onload = function (e) {
         csv_data = reader.result;
-	alert("'CSV File Data' has been updated in the 'Graphs' tab");
+	//alert("'CSV File Data' has been updated in the 'Graphs' tab");
+  var y_block = workspace.newBlock("graph_y_data");
+  y_block.initSvg();
+  y_block.render();
 
-
+  var x_block = workspace.newBlock("graph_x_data");
+  x_block.initSvg();
+  x_block.render();
+  document.getElementById("uploaded").style.display = "inline-block";
       };
 
       reader.readAsText(file);
@@ -868,17 +876,55 @@ var timer =  setInterval(blinker, 100);
 
   //variable we can use to get drag and drop data, then input data to scatterplot for parsing and graphing
 Blockly.defineBlocksWithJsonArray([{
-  "type": "graph_data",
-  "message0": "CSV File Data",
-  "output": "String",
+  "type": "graph_x_data",
+  "message0": "CSV File X-Data",
+  "output": "Array",
+  "name": 'VALUE',
   "colour": Blockly.Msg['VARIABLES_HUE'],
   "tooltip": Blockly.Msg['VARIABLES_GET_TOOLTIP'],
   "helpUrl": Blockly.Msg['VARIABLES_GET_HELPURL']
 }]);
-  Blockly.JavaScript['graph_data'] = function(block) {
-  // x variable getter.
-  return [csv_data, Blockly.JavaScript.ORDER_ATOMIC];//, Blockly.JavaScript.ORDER_ATOMIC];
+  Blockly.JavaScript['graph_x_data'] = function(block) {
+    if (csv_data != null){
+    var coords = csv_data.split("\r\n");
+  }
+  	 console.log(coords);
+    var x_values = new Array(coords.length -1);
+
+    for(var i = 0; i<(coords.length-1); i++){
+  	  coord_pair = coords[i].split(",");
+  	 x_values[i] = coord_pair[0];
+   }
+  	 var code = '[' + x_values.join(', ') + ']';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+Blockly.defineBlocksWithJsonArray([{
+  "type": "graph_y_data",
+  "message0": "CSV File Y-Data",
+  "name": 'VALUE',
+  "output": "Array",
+  "colour": Blockly.Msg['VARIABLES_HUE'],
+  "tooltip": Blockly.Msg['VARIABLES_GET_TOOLTIP'],
+  "helpUrl": Blockly.Msg['VARIABLES_GET_HELPURL']
+}]);
+  Blockly.JavaScript['graph_y_data'] = function(block) {
+    if(csv_data != null){
+    var coords = csv_data.split("\r\n");
+
+     console.log(coords);
+   }
+    var y_values = new Array(coords.length -1);
+
+    for(var i = 0; i<(coords.length-1); i++){
+      coord_pair = coords[i].split(",");
+
+     y_values[i] = coord_pair[1];
+   }
+     var code = '[' + y_values.join(', ') + ']';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+
+};
+
 
 
 
@@ -888,9 +934,10 @@ Blockly.defineBlocksWithJsonArray([{
 Blockly.JavaScript['create_scatterplot'] = function(block) {
 
   // Pull input values from create scatterplot block
-  var value_x_list = Blockly.JavaScript.valueToCode(block, 'x-list', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_y_list = Blockly.JavaScript.valueToCode(block, 'y-list', Blockly.JavaScript.ORDER_ATOMIC);
-
+//if(csv_data != null){
+  var value_x_list = Blockly.JavaScript.valueToCode(block, 'graph_x_data', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_y_list = Blockly.JavaScript.valueToCode(block, 'graph_y_data', Blockly.JavaScript.ORDER_ATOMIC);
+  console.log(value_y_list);
   var x_values = value_x_list.slice(1,-1).split(", ");
   for(var i=0; i<x_values.length; i++) {
     x_values[i] = parseInt(x_values[i]);
@@ -911,6 +958,7 @@ Blockly.JavaScript['create_scatterplot'] = function(block) {
 
   // TODO(compose and return generated code
   return value_x_list;
+//}
 };
 
 </script>

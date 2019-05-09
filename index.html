@@ -855,6 +855,13 @@ window.onload = function () {
   x_block.initSvg();
   x_block.render();
   document.getElementById("uploaded").style.display = "inline-block";
+  var blocks = Blockly.getMainWorkspace().getTopBlocks()
+  var y = 0
+  for (var i = 0; i < blocks.length; i++){
+    blocks[i].moveTo(0, y)
+    y += blocks[i].getHeightWidth().height
+    y += 10 //buffer
+  }
       };
 
       reader.readAsText(file);

@@ -15,6 +15,7 @@ overflow: hidden;
   background-color: #141f2f;
   height: 55px;
   border-bottom: solid white 2px;
+  box-shadow: 0 0 20px;
 }
 
 .navbar-brand {
@@ -78,8 +79,8 @@ overflow: hidden;
   margin: auto;
   padding-top: 30px;
   padding-left: 50px;
-  width: 135px;
-  height: 100px;
+  width: 140px;
+  height: 90px;
 }
 
 input {

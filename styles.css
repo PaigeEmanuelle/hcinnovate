@@ -79,15 +79,14 @@ overflow: hidden;
   margin: auto;
   padding-top: 10px;
   padding-left: 50px;
-  width: 140px;
-  height: 90px;
+  width: 150px;
+  height: 80px;
 }
 
 input {
   padding-top: 15px;
   padding-left: 40%;
 }
-
 
 .blocklyCommentTextarea{
   color: black;
@@ -272,7 +271,7 @@ a {
   border-color: #223351;
 }
 
-#generatedCodeDiv {
+#jsCodeDiv, #pythonCodeDiv {
   min-height: 100%; /* Still shows div when there is no text */
   height: 100%;
   width: 100%;

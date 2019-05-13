@@ -1,20 +1,9 @@
-  //function runCode(event) {
-  //  var code = Blockly.JavaScript.workspaceToCode(workspace);
-  //  var myInterpreter = new Interpreter(code);
-  //  myInterpreter.run();
-  //}
-
-
-//comment this out?
+// Comment this out?
     var demoWorkspace = Blockly.inject('blocklyDiv',
         {media: '../../media/',
          toolbox: document.getElementById('toolbox')});
     Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
                                demoWorkspace);
-
-
-
-
 
     // Exit is used to signal the end of a script.
     Blockly.JavaScript.addReservedWords('exit');

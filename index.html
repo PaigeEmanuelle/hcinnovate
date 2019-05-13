@@ -13,6 +13,7 @@
 
   <script src="blockly/blockly_compressed.js"></script>
   <script src="blockly/javascript_compressed.js"></script>
+  <script src="blockly/python_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
   <script src="blockly/msg/js/en.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -82,12 +83,14 @@
       <nav>
         <div class="nav nav-tabs" id="myTab" role="tablist">
           <a class="nav-item nav-link active" id="text-tab" data-toggle="tab" href="#textOutputDiv">Console</a></li>
-          <a class="nav-item nav-link" id="generated-tab" data-toggle="tab" href="#generatedCodeDiv">JS Generator</a></li>
+          <a class="nav-item nav-link" id="generated-tab" data-toggle="tab" href="#jsCodeDiv">JavaScript Code</a></li>
+          <a class="nav-item nav-link" id="generated-tab" data-toggle="tab" href="#pythonCodeDiv">Python Code</a></li>
         </div>
       </nav>
       <!-- Text console / Generated Code -->
       <div class="tab-content" id="myTabContent">
-        <pre id = "generatedCodeDiv" role="tabpanel" class="tab-pane fade"></pre>
+        <pre id = "jsCodeDiv" role="tabpanel" class="tab-pane fade"></pre>
+        <pre id = "pythonCodeDiv" role="tabpanel" class="tab-pane fade"></pre>
         <textarea id="textOutputDiv" role="tabpanel" disabled="disabled" class="tab-pane fade show active"></textarea> <!--style="border: none color:#fff"-->
       </div>
     </div>
@@ -111,9 +114,9 @@
 
     <category name="Graphs" colour=0>
       <!--<block type="create_scatterplot"></block>-->
-      <block type="create_scatterplot_2"></block>
+      <!-- <block type="create_scatterplot_2"></block> -->
       <block type="create_scatterplot"></block>
-      
+
       <block type="graph_y_data"></block>
       <block type="graph_x_data"></block>
     </category>
@@ -528,8 +531,10 @@
 <!-- Continuously update generated code -->
 <script>
   function myUpdateFunction(event) {
-    var code = Blockly.JavaScript.workspaceToCode(workspace);
-    document.getElementById('generatedCodeDiv').innerHTML = code;
+    var jsCode = Blockly.JavaScript.workspaceToCode(workspace);
+    var pythonCode = Blockly.Python.workspaceToCode(workspace);
+    document.getElementById('jsCodeDiv').innerHTML = jsCode;
+    document.getElementById('pythonCodeDiv').innerHTML = pythonCode;
   }
   workspace.addChangeListener(myUpdateFunction);
 </script>
@@ -542,8 +547,8 @@ function redoAction(){
   Blockly.mainWorkspace.undo(true);
 }
 function deletePlot(event) {
-  console.log(Blockly.mainWorkspace.getBlocksByType('create_scatterplot_2'));
-  if(Blockly.mainWorkspace.getBlocksByType('create_scatterplot_2').length==0){
+  console.log(Blockly.mainWorkspace.getBlocksByType('create_scatterplot'));
+  if(Blockly.mainWorkspace.getBlocksByType('create_scatterplot').length==0){
     Plotly.purge("visualOutputDiv");
   }
 }

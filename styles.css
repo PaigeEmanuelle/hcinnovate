@@ -92,122 +92,51 @@ input {
   color: black;
 }
 #\3a 1 > div.blocklyTreeRow{
-
   background-color: rgb(91,128,165);
-
-
-
-}
-#\3a 1 > div.blocklyTreeRow:hover{
-
-  background-color: silver;
-
-
-
 }
 #\3a 2 > div.blocklyTreeRow{
-
   background-color: rgb(165,91,91);
-
-
-
-}
-#\3a 2 > div.blocklyTreeRow:hover{
-
-  background-color: silver;
-
-
-
 }
 #\3a 3 > div.blocklyTreeRow{
-
   background-color: rgb(91,165,91);
-
-
-
-}
-#\3a 3 > div.blocklyTreeRow:hover{
-
-  background-color: silver;
-
-
-
 }
 #\3a 4 > div.blocklyTreeRow{
-
   background-color: rgb(91,103,165);
-
-
-
-}
-#\3a 4 > div.blocklyTreeRow:hover{
-
-  background-color: silver;
-
-
-
 }
 #\3a 5 > div.blocklyTreeRow{
-
   background-color: rgb(91,165,140);
-
-
-
-}
-#\3a 5 > div.blocklyTreeRow:hover{
-
-  background-color: silver;
-
-
-
 }
 #\3a 6 > div.blocklyTreeRow{
-
   background-color: rgb(116,91,165);
-
-
-
-}
-#\3a 6 > div.blocklyTreeRow:hover{
-
-  background-color: silver;
-
-
-
 }
 #\3a 7 > div.blocklyTreeRow{
-
   background-color: rgb(165,116,91);
-
-
-
-}
-#\3a 7 > div.blocklyTreeRow:hover{
-
-  background-color: silver;
-
-
-
 }
 #\3a 9 > div.blocklyTreeRow{
   background-color: rgb(165, 91, 128);
 }
-#\3a 9 > div.blocklyTreeRow:hover{
-
-  background-color: silver;
-
-
-
-}
 #\3a a > div.blocklyTreeRow{
-  background-color: rgb(153, 91, 165)
+  background-color: rgb(153, 91, 165);
 }
 #\3a a > div.blocklyTreeRow:hover{
+  background-color: background-color: #141f2f;
+}
+#\3a 1 > div.blocklyTreeRow:hover,
+#\3a 2 > div.blocklyTreeRow:hover,
+#\3a 3 > div.blocklyTreeRow:hover,
+#\3a 4 > div.blocklyTreeRow:hover,
+#\3a 5 > div.blocklyTreeRow:hover,
+#\3a 6 > div.blocklyTreeRow:hover,
+#\3a 7 > div.blocklyTreeRow:hover,
+#\3a 9 > div.blocklyTreeRow:hover,
+#\3a 10 > div.blocklyTreeRow:hover,
+#\3a a > div.blocklyTreeRow:hover
+{
+  background-color: black;
+}
 
-  background-color: silver;
-
-
-
+.blocklyTreeRow.blocklyTreeSelected {
+  background-color: black !important;
 }
 
 .blocklyToolboxDiv {
@@ -230,7 +159,6 @@ input {
   /* Dimensions with respect to right column */
   height: calc(50% - 0px);
   width: 100%;
-
 }
 
 .tab-content {

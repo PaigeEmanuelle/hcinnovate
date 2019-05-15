@@ -804,7 +804,7 @@ Blockly.defineBlocksWithJsonArray([
 
   var value_test_number = Blockly.JavaScript.valueToCode(block, 'test_number', Blockly.JavaScript.ORDER_ATOMIC);
   var coords = value_test_number.split("\r\n");
-	 console.log(coords);
+	 console.log(value_test_number);
   var x_values = new Array(coords.length -1);
   var y_values = new Array(coords.length -1);
   for(var i = 0; i<(coords.length-1); i++){

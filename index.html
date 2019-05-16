@@ -113,8 +113,7 @@
     </category>
 
     <category name="Graphs" colour=0>
-      <!--<block type="create_scatterplot"></block>-->
-      <!-- <block type="create_scatterplot_2"></block> -->
+
       <block type="create_scatterplot"></block>
 
       <block type="graph_y_data"></block>
@@ -500,27 +499,7 @@
       </next>
     </block> -->
 
-<!-- Haven't gotten the premade lists to work yet -->
-    <!-- <block type="lists_create_with" id="list_data" inline="true" x="20" y="250">
-      <mutation items="3"></mutation>
-      <value name="ITEM">
-        <block type="math_number">
-          <field name="NUM">1</field>
-        </block>
-      </value>
-      <value name="ITEM">
-        <block type="math_number">
-          <field name="NUM">1</field>
-        </block>
-      </value>
-      <value name="ITEM">
-        <block type="math_number">
-          <field name="NUM">1</field>
-        </block>
-      </value>
-    </block>
-  </xml>
- -->
+
 
 <!-- Inject toolbox into Blockly workspace -->
 <script>
@@ -556,19 +535,9 @@ workspace.addChangeListener(deletePlot);
 </script>
 
 <!-- Interpreter -->
-<!--<button onclick="runCode()" id="runButton">Run JavaScript</button>-->
+
 <script>
-//function runCode(event) {
-//  var code = Blockly.JavaScript.workspaceToCode(workspace);
-//  var myInterpreter = new Interpreter(code);
-//  myInterpreter.run();
-//}
-//comment this out?
-    // var demoWorkspace = Blockly.inject('blocklyDiv',
-    //     {media: '../../media/',
-    //      toolbox: document.getElementById('toolbox')});
-     // Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
-     //                            workspace);
+
 
     // Exit is used to signal the end of a script.
     Blockly.JavaScript.addReservedWords('exit');
@@ -607,29 +576,24 @@ workspace.addChangeListener(deletePlot);
           interpreter.createNativeFunction(wrapper));
     }
 
-    //var highlightPause = false;
+  
     var latestCode = '';
 
     function highlightBlock(id) {
-      //workspace.highlightBlock(id);
-      //highlightPause = true;
+
     }
 
     function resetStepUi(clearOutput) {
-      //workspace.highlightBlock(null);
-      //highlightPause = false;
-      //runButton.disabled = '';
+
 
       if (clearOutput) {
         outputArea.value = 'Program output:\n=================';
-        //outputArea.style = 'color:white !important';
+     
       }
     }
 
     function generateCodeAndLoadIntoInterpreter() {
-      // Generate JavaScript code and parse it.
-      //Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
-      //Blockly.JavaScript.addReservedWords('highlightBlock');
+
       latestCode = Blockly.JavaScript.workspaceToCode(workspace);
 
       resetStepUi(true);
@@ -648,19 +612,16 @@ workspace.addChangeListener(deletePlot);
         // First statement of this code.
         // Clear the program output.
         resetStepUi(true);
-        //runButton.disabled = 'disabled';
+    
 
         // And then show generated code in an alert.
         // In a timeout to allow the outputArea.value to reset first.
         setTimeout(
           function() {
-          //alert('Ready to execute the following code\n' +
-          //  '===================================\n' +
-          // latestCode
-          //  );
+        
 
           // Begin execution
-          //highlightPause = false;
+          
           myInterpreter = new Interpreter(latestCode, initApi);
           runner = function() {
             if (myInterpreter) {
@@ -813,12 +774,11 @@ Blockly.defineBlocksWithJsonArray([
 	  y_values[i] = coord_pair[1];
   }
 
-  //var x_values = value_x_list.slice(1,-1).split(", ");
   for(var i=0; i<x_values.length; i++) {
     x_values[i] = parseInt(x_values[i]);
   }
 
-  //var y_values = value_y_list.slice(1,-1).split(", ");
+
   for(var i=0; i<y_values.length; i++) {
     y_values[i] = parseInt(y_values[i]);
   }
@@ -831,7 +791,7 @@ Blockly.defineBlocksWithJsonArray([
   };
   Plotly.newPlot("visualOutputDiv", [points]);
 
-  var code = 'data = ' + value_test_number + ';';//'print("New scatterplot created")';
+  var code = 'data = ' + value_test_number + ';';
   return code;
 };
 
@@ -846,12 +806,12 @@ window.onload = function () {
     var file = fileInput.files[0];
     var textType = /text.*/;
 
-    //if (file.type.match(textType)) {
+
       var reader = new FileReader();
 
       reader.onload = function (e) {
         csv_data = reader.result;
-	//alert("'CSV File Data' has been updated in the 'Graphs' tab");
+	
   var y_block = workspace.newBlock("graph_y_data");
   y_block.initSvg();
   y_block.render();
@@ -865,17 +825,15 @@ window.onload = function () {
   for (var i = 0; i < blocks.length; i++){
     blocks[i].moveTo(0, y)
     y += blocks[i].getHeightWidth().height
-    y += 10 //buffer
+    y += 10 
   }
       };
 
       reader.readAsText(file);
-    //} else {
-      //fileDisplayArea.innerText = "File not supported!";
-    //}
+
   });
 };
-      //# sourceURL=pen.js
+     
 var blinker = function() {
 
  	if(csv_data != null){
@@ -946,7 +904,7 @@ Blockly.defineBlocksWithJsonArray([{
 Blockly.JavaScript['create_scatterplot'] = function(block) {
 
   // Pull input values from create scatterplot block
-//if(csv_data != null){
+
   var value_x_list = Blockly.JavaScript.valueToCode(block, 'graph_x_data', Blockly.JavaScript.ORDER_ATOMIC);
   var value_y_list = Blockly.JavaScript.valueToCode(block, 'graph_y_data', Blockly.JavaScript.ORDER_ATOMIC);
   console.log(value_y_list);

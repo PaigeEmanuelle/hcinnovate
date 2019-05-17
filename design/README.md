@@ -69,6 +69,8 @@ Repository for the HCI application of Team HCInnovate (Seth, Russell, and Paige)
  * Interaction between imported data and standard blocks
   
  * Multiple project tabs, ability to save and open projects
+ 
+ * Create variable space for blockly variables to be saved or accessed
   
   
 

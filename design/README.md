@@ -6,7 +6,7 @@ This document outlines the design decisions made during the development of the H
 
  * Allow novice coders to create coding solutions without having to learn how to program
   
- * Abstract away all sintactical elements to coding
+ * Abstract away all syntactical elements to coding
   
  * Give users access to high level algorithms and concepts such as machine learning and artificial intelligence
   
@@ -34,7 +34,7 @@ This document outlines the design decisions made during the development of the H
   
   **Experimental Analyses:** Needfinding interviews and survey, prototype user test and interviews, summative user evaluation and design feedback
   
-  **Biggest Implementational Challenges**: Merging Blockly functionality with our custom data formats, generating and displaying code from blockly blocks, generating graphs from code in blocks
+  **Biggest Implementational Challenges**: Merging Blockly functionality with our custom data formats, generating and displaying code from Blockly blocks, generating graphs from code in blocks
   
   
 ## Final functionality: ##

@@ -1,3 +1,5 @@
+# HCInnovate Application Instructions
+
 This project is hosted on GitHub pages. To open our application, simply go to the environment tab on the code section of the repository and 
 then click view deployment. 
 

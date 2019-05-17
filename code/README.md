@@ -9,7 +9,7 @@ then click view deployment.
 
 Or you can simply follow this link: https://paigeemanuelle.github.io/hcinnovate/code/
 
-There is only one page to our application (other than help wikis)
+There is only one page to our application (other than our help wikis).
 
 ## Getting started
 

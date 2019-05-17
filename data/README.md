@@ -1,10 +1,10 @@
 # Raw Data 
 
-This folder includes additional notes, data, and observations from our project.
+This folder includes additional notes, data, and observations from our project. Each of the files in this folder is described below.
 
 ## Personas
 
-We created three personas based on survey data collected during our need finding phase
+We created three personas based on survey data collected during our need finding phase.
 
 ## Prototype Test Notes
 

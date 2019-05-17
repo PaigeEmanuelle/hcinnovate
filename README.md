@@ -2,7 +2,7 @@
 Repository for the HCI application of Team HCInnovate (Seth, Russell, and Paige). Consists of a web app that integrates Blockly code. Hosted with Github Pages.
 
 
-## Initial Functional Goals: ##
+## Initial functional goals: ##
 
  * Allow novice coders to create coding solutions without having to learn how to program
   
@@ -15,7 +15,7 @@ Repository for the HCI application of Team HCInnovate (Seth, Russell, and Paige)
  * Allow users to choose their level of abstraction when working on projects
   
 
-## Initial Non-Fuctional/Design Goals: ##
+## Initial non-fuctional/design goals: ##
   
  * Workflow should mirror user's intuition for how logical statements fit together
   
@@ -28,16 +28,16 @@ Repository for the HCI application of Team HCInnovate (Seth, Russell, and Paige)
  * Easy to start working with, no setup or learning required
   
   
-## Design Process: ##
+## Design process: ##
 
-  Technologies used: Blockly by Google, Bootstrap, HTML, CSS, JS, Plotly
+  **Technologies used:** Blockly by Google, Bootstrap, HTML, CSS, JS, Plotly
   
-  Experimental Analyses: Needfinding Interviews and Survey, Prototype User Test and Interviews, Summative User Evaluation and Design      Feedback
+  **Experimental Analyses:** Needfinding interviews and survey, prototype user test and interviews, summative user evaluation and design feedback
   
-  Biggest Implementational Challenges: Merging blockly functionality with our custom data formats, generating and displaying code from blockly blocks, generating graphs from code in blocks
+  **Biggest Implementational Challenges**: Merging Blockly functionality with our custom data formats, generating and displaying code from blockly blocks, generating graphs from code in blocks
   
   
-## Final Functionality: ##
+## Final functionality: ##
   
   Users can create programs without having to know any coding language or syntax
   
@@ -46,7 +46,7 @@ Repository for the HCI application of Team HCInnovate (Seth, Russell, and Paige)
   Users can generate graphs of imported data
   
   
-## Design Elements We Kept: ##
+## Design elements we kept: ##
   
   All coding elements represented by drag and drop blocks
   
@@ -56,7 +56,7 @@ Repository for the HCI application of Team HCInnovate (Seth, Russell, and Paige)
   
   No setup necesary, just start dragging and dropping blocks
   
-## Design Elements We Changed: ##
+## Design elements we changed: ##
   
  * Decrease number of windows/combine some functionalities to decrease number of things user has to keep track of
   

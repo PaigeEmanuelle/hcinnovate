@@ -1,5 +1,5 @@
-# hcinnovate
-Repository for the HCI application of Team HCInnovate (Seth, Russell, and Paige). Consists of a web app that integrates Blockly code. Hosted with Github Pages.
+# Design Documentation
+This document outlines the design decisions made during the development of the HCInnovate application, a web application hosted on Github Pages. 
 
 
 ## Initial functional goals: ##

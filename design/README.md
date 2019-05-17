@@ -74,11 +74,16 @@ This document outlines the design decisions made during the development of the H
   
 ## Things we would like to have implemented: ##
   
- * Interaction between imported data and standard blocks. For example, ideally you would be able to do something like add 1 to each y value in the datd you uploaded, then plot the modified data.
+ * Interaction between imported data and standard blocks. For example, ideally you would be able to do something like add 1 to each y value in the datd you uploaded, then plot the modified data
   
  * Multiple project tabs, ability to save and open projects
  
  * Create variable space for blockly variables to be saved or accessed. Users could see the current value of a variable
+ 
+ * The ability to expand and collapse sections of the screen to increase user control and freedom
+ 
+ * Improve upon and add to documentation, perhaps integrating it into the application instead of having it on a separate screen
+ 
   
   
 

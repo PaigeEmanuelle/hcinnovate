@@ -66,9 +66,9 @@ Repository for the HCI application of Team HCInnovate (Seth, Russell, and Paige)
   
 ## Things we would like to have implemented: ##
   
-  Interaction between imported data and standard blocks
+ * Interaction between imported data and standard blocks
   
-  Multiple project tabs, ability to save and open projects
+ * Multiple project tabs, ability to save and open projects
   
   
 

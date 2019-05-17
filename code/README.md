@@ -1,4 +1,8 @@
-# HCInnovate Application Instructions
+# HCInnovate Repository
+
+This folder contains all of the code needed to run our application, including the main HTML and CSS files and the Blockly and Javascript dependencies.
+
+# Instructions to Run the Application
 
 This project is hosted on GitHub pages. To open our application, simply go to the environment tab on the code section of the repository and 
 then click view deployment. 

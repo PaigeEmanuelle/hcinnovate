@@ -1,5 +1,7 @@
 This project is hosted on GitHub pages. To open our app, simply go to the environment tab on the code section of the repository and 
-then click view deployment. There is only one page to our application(other than help wikis)
+then click view deployment. 
+Or you can simply follow this link: https://paigeemanuelle.github.io/hcinnovate/code/
+There is only one page to our application(other than help wikis)
 
 This app works by simulating code syntax with blocks that fit together like puzzle pieces.
 Blocks are organized by functionality in the block menu, and are named after common coding statements like loops and if statements
